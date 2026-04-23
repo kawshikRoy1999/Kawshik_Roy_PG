@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawshik Roy - 3D Virtual Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Import map for Three.js -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Game UI -->
+    <div id="blocker">
+        <div id="instructions">
+            <p style="font-size:48px; font-weight: bold; font-family: 'Outfit', sans-serif; color: #00f0ff; margin-bottom: 20px;">Click to Enter</p>
+            <p>
+                Walk: W, A, S, D<br/>
+                Look: Mouse
+            </p>
+            <p style="margin-top: 30px; font-size: 14px; color: #a0a0a0;">Kawshik Roy - ASP.NET Full Stack Developer</p>
+        </div>
+    </div>
+
+    <div id="crosshair">+</div>
+
+    <!-- 3D Canvas Background -->
+    <canvas id="bg"></canvas>
+
+    <!-- UI Overlay Cards (Hidden by default, shown via Raycaster) -->
+    <main id="ui-container">
+        
+        <!-- Hero Card -->
+        <div id="ui-hero" class="ui-card glass-card">
+            <h1>Kawshik <span>Roy</span></h1>
+            <h2>ASP.NET Full Stack Developer</h2>
+            <p class="tagline">Crafting seamless enterprise applications and premium digital experiences.</p>
+            <p style="margin-top: 10px; font-size: 0.9em; color: var(--accent-secondary);">Email: kawshik.r@wizardcomm.net | Location: Kolkata, India</p>
+        </div>
+
+        <!-- About Card -->
+        <div id="ui-about" class="ui-card glass-card">
+            <h2>Summary</h2>
+            <p>Results-driven ASP.NET Full Stack Developer with 2+ years of experience delivering web applications across Asset Management, Restaurant Management, POS, and E-commerce domains. Strong expertise in ASP.NET Core Web API, MVC, SQL Server, and performance optimization with clean architecture and production support experience.</p>
+        </div>
+
+        <!-- Experience Card -->
+        <div id="ui-experience" class="ui-card glass-card" style="max-height: 70vh; overflow-y: auto;">
+            <h2>Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Software Developer</h3>
+                    <h4>Wizard Communications, Kolkata | May 2025 – Present</h4>
+                    <ul>
+                        <li><strong>Asset Management:</strong> Developed dynamic Excel Import/Export module, engineered intelligent header mapping, and built comprehensive validation engines.</li>
+                        <li><strong>Restaurant Management (RMS):</strong> Designed comprehensive inventory architecture and automated raw material deduction.</li>
+                        <li><strong>Point of Sale (POS):</strong> Developed end-to-end POS workflows, multi-payment settlement, and implemented RBAC.</li>
+                        <li><strong>E-Commerce:</strong> Designed Core REST APIs and a Delivery Management System with real-time tracking.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item" style="margin-top: 20px;">
+                    <h3>Software Developer</h3>
+                    <h4>Seap Infotech, Kolkata | Dec 2023 – Apr 2025</h4>
+                    <ul>
+                        <li>Developed dynamic label placement feature for interactive maps.</li>
+                        <li>Engineered split-screen functionality displaying maps alongside work order lists.</li>
+                        <li>Integrated PDF generation with embedded map screenshots for project documentation.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Card -->
+        <div id="ui-skills" class="ui-card glass-card">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="tags">
+                        <span>C#</span>
+                        <span>ASP.NET Core</span>
+                        <span>Web API</span>
+                        <span>Entity Framework Core</span>
+                        <span>SQL Server</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="tags">
+                        <span>HTML5/CSS3</span>
+                        <span>JavaScript</span>
+                        <span>jQuery</span>
+                        <span>Bootstrap</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Domains</h3>
+                    <div class="tags">
+                        <span>Asset Management</span>
+                        <span>POS</span>
+                        <span>E-Commerce</span>
+                        <span>GIS / Mapping</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Card -->
+        <div id="ui-education" class="ui-card glass-card">
+            <h2>Education</h2>
+            <div class="edu-item">
+                <h3>Master of Computer Applications (MCA)</h3>
+                <p>Indira Gandhi National Open University (IGNOU) | 2023</p>
+            </div>
+            <div class="edu-item" style="margin-top: 20px;">
+                <h3>Bachelor of Computer Applications (BCA)</h3>
+                <p>Indira Gandhi National Open University (IGNOU) | 2021</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Main Logic -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>
